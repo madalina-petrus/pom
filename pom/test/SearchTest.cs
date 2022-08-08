@@ -12,13 +12,14 @@ namespace pom.test
     public class SearchTest:BaseTest
     {
         [Test]
-
-        public void SearchItem()
+        [TestCase("Ford")]
+        [TestCase("ShIrt")]
+        public void SearchItem(string text)
         {
-            string text = "shirt";
+            
             Pages.SearchPage.EnterTextInSearchBar(text);
             Pages.SearchPage.CorrectPageForSearch(text);
-            Pages.SearchPage.CorrectTitleForSearch(text);
+            
             
         }
     }

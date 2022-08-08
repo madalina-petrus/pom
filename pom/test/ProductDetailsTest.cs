@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace pom.test
 {
-    internal class ProductDetailsTest
+    [TestFixture]
+    public class ProductDetailsTest
     {
+
     }
 }

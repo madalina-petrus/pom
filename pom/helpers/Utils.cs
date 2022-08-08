@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace pom.helpers
 {
-    internal class Utils
+    public class Utils
     {
+        
     }
 }

@@ -17,21 +17,17 @@ namespace pom.page
 
         public void EnterTextInSearchBar(string text)
         {
-            Driver.WebDriver.FindElement(_searchBar).Clear();
-            Driver.WebDriver.FindElement(_searchBar).SendKeys(text);
-            Driver.WebDriver.FindElement(_searchBar).Submit();
+            var searchbar = Driver.WebDriver.FindElement(_searchBar);
+            searchbar.Clear();
+            searchbar.SendKeys(text);
+            searchbar.Submit();
         }
 
         public void CorrectPageForSearch(string text)
         {
-            Assert.That(Driver.WebDriver.Url, Is.EqualTo("http://qa2magento.dev.evozon.com/catalogsearch/result/?q=" + text));
+            Assert.That("http://qa2magento.dev.evozon.com/catalogsearch/result/?q=" + text, Is.EqualTo(Driver.WebDriver.Url));
+            Assert.That("SEARCH RESULTS FOR '" + text.ToUpper() + "'", Is.EqualTo(Driver.WebDriver.FindElement(_searchPageTitle).Text));
         }
 
-        public void CorrectTitleForSearch(string text)
-        {
-            ;
-            Assert.That(Driver.WebDriver.FindElement(_searchPageTitle).Text, Is.EqualTo("SEARCH RESULTS FOR '"+text.ToUpper()+"'"));
-
-        }
     }
 }

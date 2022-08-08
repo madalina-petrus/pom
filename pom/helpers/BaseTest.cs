@@ -14,7 +14,7 @@ namespace pom.helpers
         [SetUp]
         public void Setup()
         {
-            Driver.WebDriver = new ChromeDriver("D://internship//TestSeleniumNunit//TestSeleniumNunit//driver");
+            Driver.WebDriver = new ChromeDriver(".\\driver");
             Driver.WebDriver.Navigate().GoToUrl("http://qa2magento.dev.evozon.com");
             Driver.WebDriver.Manage().Window.Maximize();
         }

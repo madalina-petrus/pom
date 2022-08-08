@@ -17,5 +17,10 @@ namespace pom.test
             Pages.HeaderPage.LanguageSetForFrance();
         }
 
+        
+
+
+       
+
     }
 }
