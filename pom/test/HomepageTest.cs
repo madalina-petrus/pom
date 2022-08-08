@@ -12,19 +12,16 @@ namespace pom.test
     public class HomepageTest:BaseTest
     {
         [Test]
-        public void homepage()
+        public void HomepageNavigation()
         {
 
-            Pages.Homepage.clickLogo();
+            Pages.Homepage.ClickLogo();
+            Pages.Homepage.NavigateToWomen();
+            Pages.Homepage.NavigateBack();
+            Pages.Homepage.NavigateForward();
+            Pages.Homepage.Refresh();
+            Pages.Homepage.CorrectPageAfterNavigation();
            
-           
-       
-            
-            Assert.That("http://qa1magento.dev.evozon.com/women.html", Is.EqualTo(Driver.WebDriver.Url));
-
-
-
-            //Assert.That("http://qa2magento.dev.evozon.com/women.html", Is.EqualTo("http://qa2magento.dev.evozon.com/women.html"));
         }
 
     }

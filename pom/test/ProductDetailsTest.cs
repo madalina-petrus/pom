@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OpenQA.Selenium;
 
-namespace pom.helpers
+namespace pom.test
 {
-    public static class Driver
+    internal class ProductDetailsTest
     {
-        public static IWebDriver WebDriver;
     }
 }

@@ -10,34 +10,40 @@ namespace pom.page
 {
     public class Homepage
     {
+        #region Selectors
         private readonly By _logo = By.CssSelector(".logo");
-        private readonly By _page = By.CssSelector(".nav-primary li.level0");
+        private readonly By _womenPage = By.CssSelector(".nav-primary li.level0");
+        #endregion
 
-        public void clickLogo()
+        public void ClickLogo()
         {
             Driver.WebDriver.FindElement(_logo).Click();
         }
-
-        public void navigateToWomen()
+        public void NavigateToWomen()
         {
-            Driver.WebDriver.FindElement(_page).Click();
+            Driver.WebDriver.FindElement(_womenPage).Click();
         }
 
-        public void navigateBack()
+        public void NavigateBack()
         {
             Driver.WebDriver.Navigate().Back();
         }
 
-        public void navigateForward()
+        public void NavigateForward()
         {
             Driver.WebDriver.Navigate().Forward();
         }
 
-        public void refresh()
+        public void Refresh()
         {
             Driver.WebDriver.Navigate().Refresh();
         }
 
+        public void CorrectPageAfterNavigation ()
+        {
+             Assert.That(Driver.WebDriver.Url, Is.EqualTo("http://qa2magento.dev.evozon.com/women.html"));
+        }
 
-    }
+
+}
 }

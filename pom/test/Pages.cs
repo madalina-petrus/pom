@@ -12,6 +12,8 @@ namespace pom.test
     public static class Pages
     {
         public static Homepage Homepage => InitPage(new Homepage());
+        public static SearchPage SearchPage => InitPage(new SearchPage());
+        public static HeaderPage HeaderPage => InitPage(new HeaderPage());
         public static T InitPage<T>(T page)
         {
             PageFactory.InitElements(Driver.WebDriver, page);
