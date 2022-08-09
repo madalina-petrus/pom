@@ -17,7 +17,8 @@ namespace pom.test
             //Pages.AccountPage.GoToLogIn();
 
             Pages.HeaderPage.NavigateToTopsAndBlouses();
-            Pages.ProductDetailsPage.AddFirstProductToCart();
+            Pages.ProductDetailsPage.SelectFirstProduct();
+            Pages.ProductDetailsPage.AddToCart();
             Assert.That(Pages.HeaderPage.GetProductCount(), Is.EqualTo("1"));
         }
     }

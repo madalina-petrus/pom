@@ -49,19 +49,17 @@ namespace pom.page
             random.Click();
         }
 
-        public void AddFirstProductToCart()
+        public void SelectFirstProduct()
         {
             Driver.WebDriver.FindElements(_productsList)[0].Click();
             Driver.WebDriver.FindElements(_colorList)[0].Click();
             Driver.WebDriver.FindElements(_sizeList)[1].Click();
-            Driver.WebDriver.FindElement(_addToCartButton).Click();
-
 
         }
 
         public void AddToCart()
         {
-            if (Driver.WebDriver.FindElement(_stockLabel).Text.Equals(Constants.PRODUCT_IN_STOCK)) ;
+            if (Driver.WebDriver.FindElement(_stockLabel).Text.Equals(Constants.PRODUCT_IN_STOCK));
             Driver.WebDriver.FindElement(_addToCartButton).Click();
 
         }
