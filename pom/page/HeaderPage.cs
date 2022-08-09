@@ -25,10 +25,10 @@ namespace pom.page
             select.SelectByIndex(1);
         }
 
-        public void LanguageSetForFrance()
+        public bool LanguageSetForFrance()
         {
             SelectElement select = new SelectElement(Driver.WebDriver.FindElement(_languageCombobox));
-            Assert.That(select.SelectedOption.Text, Is.EqualTo("French"));
+            return(select.SelectedOption.Text).Equals("French");
         }
 
         public void NavigateToTopsAndBlouses()

@@ -11,15 +11,20 @@ namespace pom.test
     public class CartTest: BaseTest
     {
         [Test]
-        public void addProductToCart()
+        public void CorrectCountOnMinicart()
         {
             //Pages.AccountPage.AccountList();
             //Pages.AccountPage.GoToLogIn();
 
             Pages.HeaderPage.NavigateToTopsAndBlouses();
-            Pages.ProductDetailsPage.SelectFirstProduct();
+            Pages.ProductDetailsPage.SelectAvailableProduct();
             Pages.ProductDetailsPage.AddToCart();
             Assert.That(Pages.HeaderPage.GetProductCount(), Is.EqualTo("1"));
+        }
+
+        public void ProductAddToCart()
+        {
+
         }
     }
 }

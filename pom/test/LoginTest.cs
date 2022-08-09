@@ -17,7 +17,9 @@ namespace pom.test
         {
             Pages.AccountPage.AccountList();
             Pages.AccountPage.GoToLogIn();
-            Pages.LoginPage.EnterDataForLogIn(email, password);
+            Pages.LoginPage.EnterEmailForLogIn(email);
+            Pages.LoginPage.EnterPasswordForLogIn(password);
+            Pages.LoginPage.ClickLogInButton();
             Pages.LoginPage.VerifyEmailFromContactInformation(email);
 
         }

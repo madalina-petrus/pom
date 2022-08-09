@@ -14,7 +14,7 @@ namespace pom.page
     {
         #region Selectors
         private readonly By _productsList = By.CssSelector(".products-grid .item");
-        private readonly By _addToCartButton = By.CssSelector(".add-to-cart-buttons");
+        private readonly By _addToCartButton = By.CssSelector(".add-to-cart-buttons .button");
         private readonly By _colorList = By.CssSelector("#configurable_swatch_color li");
         private readonly By _sizeList = By.CssSelector("#configurable_swatch_size li");
         private readonly By _stockLabel = By.CssSelector("span.value");
@@ -49,7 +49,7 @@ namespace pom.page
             random.Click();
         }
 
-        public void SelectFirstProduct()
+        public void SelectAvailableProduct()
         {
             Driver.WebDriver.FindElements(_productsList)[0].Click();
             Driver.WebDriver.FindElements(_colorList)[0].Click();
@@ -57,11 +57,29 @@ namespace pom.page
 
         }
 
+        public void SelectUnavailableProduct()
+        {
+            Driver.WebDriver.FindElements(_productsList)[0].Click();
+            Driver.WebDriver.FindElements(_colorList)[0].Click();
+            Driver.WebDriver.FindElements(_sizeList)[0].Click();
+
+        }
+
+        public bool DisabledAddToCartButton()
+        {
+           return Driver.WebDriver.FindElement(_addToCartButton).Enabled;
+        }
+
         public void AddToCart()
         {
             if (Driver.WebDriver.FindElement(_stockLabel).Text.Equals(Constants.PRODUCT_IN_STOCK));
             Driver.WebDriver.FindElement(_addToCartButton).Click();
 
+        }
+
+        public void AddProductToCart()
+        {
+            
         }
 
 

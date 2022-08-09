@@ -14,7 +14,7 @@ namespace pom.test
         public void SetLanguageInFrance()
         {
             Pages.HeaderPage.ChangeDefaultLanguageInFrance();
-            Pages.HeaderPage.LanguageSetForFrance();
+            Assert.IsTrue(Pages.HeaderPage.LanguageSetForFrance());
         }
 
         

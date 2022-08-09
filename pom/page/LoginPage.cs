@@ -17,15 +17,25 @@ namespace pom.page
         private readonly By _emailAdress = By.CssSelector(".col2-set .col-1 .box-content");
         #endregion
 
-        public void EnterDataForLogIn(string email,string password)
+        public void ClickLogInButton()
+        {
+
+
+            Driver.WebDriver.FindElement(_logInButton).Submit();
+        }
+
+        public void EnterEmailForLogIn(string email)
         {
             var emailField = Driver.WebDriver.FindElement(_emailImputField);
             emailField.Clear();
             emailField.SendKeys(email);
+        }
+
+        public void EnterPasswordForLogIn(string password)
+        {
             var passwordField = Driver.WebDriver.FindElement(_passwordImputField);
             passwordField.Clear();
             passwordField.SendKeys(password);
-            Driver.WebDriver.FindElement(_logInButton).Submit();
         }
 
         public void VerifyEmailFromContactInformation(string email)
