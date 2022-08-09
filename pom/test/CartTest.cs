@@ -13,11 +13,12 @@ namespace pom.test
         [Test]
         public void addProductToCart()
         {
-            Pages.AccountPage.AccountList();
-            Pages.AccountPage.GoToLogIn();
+            //Pages.AccountPage.AccountList();
+            //Pages.AccountPage.GoToLogIn();
 
             Pages.HeaderPage.NavigateToTopsAndBlouses();
-            Pages.ProductDetailsPage.getRandomProduct();
+            Pages.ProductDetailsPage.AddFirstProductToCart();
+            Assert.That(Pages.HeaderPage.GetProductCount(), Is.EqualTo("1"));
         }
     }
 }

@@ -16,6 +16,7 @@ namespace pom.page
         private readonly By _languageCombobox = By.CssSelector("#select-language");
         private readonly By _womenPage = By.CssSelector(".nav-primary li.level0");
         private readonly By _topsAndBlouses = By.CssSelector(".level1.nav-1-2");
+        private readonly By _minicartCount = By.CssSelector(".count");
         #endregion
 
         public void ChangeDefaultLanguageInFrance()
@@ -37,6 +38,11 @@ namespace pom.page
             actions.MoveToElement(Driver.WebDriver.FindElement(_topsAndBlouses));
             actions.Click().Build().Perform();
 
+        }
+
+        public string GetProductCount()
+        {
+            return Driver.WebDriver.FindElement(_minicartCount).Text;
         }
     }
 }

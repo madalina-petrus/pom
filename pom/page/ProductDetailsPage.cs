@@ -15,21 +15,60 @@ namespace pom.page
         #region Selectors
         private readonly By _productsList = By.CssSelector(".products-grid .item");
         private readonly By _addToCartButton = By.CssSelector(".add-to-cart-buttons");
-       
+        private readonly By _colorList = By.CssSelector("#configurable_swatch_color li");
+        private readonly By _sizeList = By.CssSelector("#configurable_swatch_size li");
+        private readonly By _stockLabel = By.CssSelector("span.value");
+
+
         #endregion
-        public void getRandomProduct()
+        public void GetRandomProduct()
         {
             var list = Driver.WebDriver.FindElements(_productsList);
             Random rnd = new Random();
-            int randIndex = rnd.Next(list.Count-1);
+            int randIndex = rnd.Next(list.Count - 1);
             IWebElement random = list[randIndex];
             random.Click();
         }
 
-        public void addProductToCart()
+
+        public void SelectRandomColor()
         {
+            var list = Driver.WebDriver.FindElements(_colorList);
+            Random rnd = new Random();
+            int randIndex = rnd.Next(list.Count - 1);
+            IWebElement random = list[randIndex];
+            random.Click();
+            ; }
+
+        public void SelectRandomSize()
+        {
+            var list = Driver.WebDriver.FindElements(_sizeList);
+            Random rnd = new Random();
+            int randIndex = rnd.Next(list.Count - 1);
+            IWebElement random = list[randIndex];
+            random.Click();
+        }
+
+        public void AddFirstProductToCart()
+        {
+            Driver.WebDriver.FindElements(_productsList)[0].Click();
+            Driver.WebDriver.FindElements(_colorList)[0].Click();
+            Driver.WebDriver.FindElements(_sizeList)[1].Click();
             Driver.WebDriver.FindElement(_addToCartButton).Click();
-;        }
+
+
+        }
+
+        public void AddToCart()
+        {
+            if (Driver.WebDriver.FindElement(_stockLabel).Text.Equals(Constants.PRODUCT_IN_STOCK)) ;
+            Driver.WebDriver.FindElement(_addToCartButton).Click();
+
+        }
+
+
+
+        
 
 
     }

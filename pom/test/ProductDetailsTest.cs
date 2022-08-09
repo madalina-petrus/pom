@@ -9,6 +9,14 @@ namespace pom.test
     [TestFixture]
     public class ProductDetailsTest
     {
+        [Test]
+
+        public void OutOfStockAddButton()
+        {
+            Pages.HeaderPage.NavigateToTopsAndBlouses();
+            
+
+        }
 
     }
 }
