@@ -13,15 +13,29 @@ namespace pom.test
         [Test]
         [TestCase(Constants.VALID_EMAIL, Constants.VALID_PASSWORD)]
         [TestCase("q@yahoo.com", "ceva")]
-        public void LoginAccount(string email,string password)
+        public void LoginValidAccount(string email,string password)
         {
             Pages.AccountPage.AccountList();
             Pages.AccountPage.GoToLogIn();
             Pages.LoginPage.EnterEmailForLogIn(email);
             Pages.LoginPage.EnterPasswordForLogIn(password);
             Pages.LoginPage.ClickLogInButton();
-            Pages.LoginPage.VerifyEmailFromContactInformation(email);
+            Assert.IsTrue(Pages.LoginPage.VerifyEmailFromContactInformation(email));
 
+        }
+
+        [Test]
+        [TestCase(Constants.VALID_EMAIL, "ertyuio", "Invalid login or password.")]
+        [TestCase(Constants.VALID_EMAIL, "", "Login and password are required.")]
+        [TestCase("q@yahoo.com", "parola", "Invalid login or password.")]
+        public void LoginInvalidAccount(string email, string password,string msg)
+        {
+            Pages.AccountPage.AccountList();
+            Pages.AccountPage.GoToLogIn();
+            Pages.LoginPage.EnterEmailForLogIn(email);
+            Pages.LoginPage.EnterPasswordForLogIn(password);
+            Pages.LoginPage.ClickLogInButton();
+            Assert.IsTrue(Pages.LoginPage.ErrorMessageForInvalidData(msg));
         }
     }
 }

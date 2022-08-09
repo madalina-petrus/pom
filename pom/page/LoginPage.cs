@@ -15,6 +15,8 @@ namespace pom.page
         private readonly By _passwordImputField = By.CssSelector("#pass");
         private readonly By _logInButton = By.CssSelector("#send2");
         private readonly By _emailAdress = By.CssSelector(".col2-set .col-1 .box-content");
+        //selector unic email .box-info:nth-child(4) .col2-set .col-1 .box-content
+        private readonly By _errorMessage = By.CssSelector(".error-msg");
         #endregion
 
         public void ClickLogInButton()
@@ -38,11 +40,16 @@ namespace pom.page
             passwordField.SendKeys(password);
         }
 
-        public void VerifyEmailFromContactInformation(string email)
+        public bool VerifyEmailFromContactInformation(string email)
         {
             var text = Driver.WebDriver.FindElements(_emailAdress)[0].Text;
             string[] subs = text.Split("\r\n");
-            Assert.That(subs[1], Is.EqualTo(email));
+            return subs[1].Equals(email);
+        }
+
+        public bool ErrorMessageForInvalidData(string msg)
+        {
+            return Driver.WebDriver.FindElement(_errorMessage).Text.Equals(msg);
         }
     }
 }
